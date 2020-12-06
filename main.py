@@ -25,10 +25,14 @@ class GestureLock:
             self.gesture = gesture
             self.action = self.pairs[gesture]
 
+    def set_new_pairs(self, new_pairs):
+        if len(new_pairs) != 0:
+            self.pairs.update(new_pairs)
+
 
 def main_cam(gesture_lock):
     cap = cv2.VideoCapture(0)
-    address = "http://192.168.1.193:8080/video"
+    address = "http://192.168.1.193:8080/paint_sheet"
     cap.open(address)
 
     fps = FPS().start()
