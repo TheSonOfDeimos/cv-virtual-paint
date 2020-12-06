@@ -34,6 +34,7 @@ def main_cam(gesture_lock):
 
     fps = FPS().start()
     fps_count = 0.0
+    
     drawing = Drawing()
 
     while cap.isOpened():
@@ -66,6 +67,6 @@ def main_cam(gesture_lock):
 
 if __name__ == '__main__':
     lock = GestureLock()
-    with ThreadPoolExecutor(max_workers=3) as executor:
+    with ThreadPoolExecutor(max_workers=2) as executor:
         executor.submit(main_cam, lock)
         executor.submit(yolo_detection, lock)
